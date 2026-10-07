@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم قدورة | Qaddoura Restaurant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #121212;
+            --card-black: #1e1e1e;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-white: #ffffff;
+            --text-gray: #b0b0b0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--card-black);
+            border-bottom: 2px solid var(--gold);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .logo span {
+            color: var(--text-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* شريط الأقسام */
+        .categories-nav {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 15px 0;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+
+        .categories-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-btn {
+            background: var(--card-black);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--gold);
+            color: var(--bg-black);
+        }
+
+        /* شبكة المنتجات */
+        .section-title {
+            color: var(--gold);
+            margin: 30px 0 15px;
+            border-bottom: 1px dashed var(--gold);
+            padding-bottom: 5px;
+            font-size: 1.8rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .item-card {
+            background: var(--card-black);
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .item-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .item-info {
+            padding: 20px;
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 8px;
+        }
+
+        .item-desc {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-price {
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .add-btn {
+            background: var(--gold);
+            color: var(--bg-black);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .add-btn:hover {
+            background: var(--gold-light);
+        }
+
+        /* سلة المشتريات العائمة */
+        .cart-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--bg-black);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 900;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">قدورة <span>QADDOURA</span></div>
+    </header>
+
+    <div class="container">
+        <!-- الأقسام الرئيسية -->
+        <div class="categories-nav">
+            <button class="cat-btn active">🔥 العروض اليومية</button>
+            <button class="cat-btn">🚀 الصواريخ</button>
+            <button class="cat-btn">🍕 البيتزا</button>
+            <button class="cat-btn">🥧 الفطائر</button>
+            <button class="cat-btn">🥘 الطواجن</button>
+            <button class="cat-btn">🍛 الكشري</button>
+            <button class="cat-btn">🌯 الكريب</button>
+            <button class="cat-btn">🥤 المشروبات</button>
+        </div>
+
+        <!-- قسم العروض اليومية -->
+        <div class="section-title">🔥 العروض اليومية</div>
+        <div class="menu-grid">
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-title">عرض العائلة الصاروخي</div>
+                    <div class="item-desc">2 بيتزا كبير + 1 صواريخ مشكل + لتر كوكاكولا هدية.</div>
+                    <div class="item-footer">
+                        <span class="item-price">350 جـ</span>
+                        <button class="add-btn">إضافة للسلة</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-title">عرض البيتزا المزدوج</div>
+                    <div class="item-desc">اشتري أي 2 بيتزا وسط واحصل على الثالثة مجاناً.</div>
+                    <div class="item-footer">
+                        <span class="item-price">260 جـ</span>
+                        <button class="add-btn">إضافة للسلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم الصواريخ -->
+        <div class="section-title">🚀 الصواريخ</div>
+        <div class="menu-grid">
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-title">صاروخ شاورما دجاج مكسيكي</div>
+                    <div class="item-desc">خبز فرنسي طويل محشي شاورما دجاج، موتزاريلا، وصوص خاص.</div>
+                    <div class="item-footer">
+                        <span class="item-price">95 جـ</span>
+                        <button class="add-btn">إضافة للسلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم البيتزا -->
+        <div class="section-title">🍕 البيتزا</div>
+        <div class="menu-grid">
+            <div class="item-card">
+                <div class="item-info">
+                    <div class="item-title">بيتزا بيبروني وسط</div>
+                    <div class="item-desc">صوص طماطم، جبن موتزاريلا، وشرائح بيبروني ممتازة.</div>
+                    <div class="item-footer">
+                        <span class="item-price">120 جـ</span>
+                        <button class="add-btn">إضافة للسلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- السلة العائمة -->
+    <div class="cart-float">
+        🛒 سلة المشتريات (<span id="cart-count">0</span>)
+    </div>
+
+</body>
+</html>
